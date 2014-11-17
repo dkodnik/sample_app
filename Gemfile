@@ -13,10 +13,16 @@ group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
-  # gem 'guard-rspec', '2.5.0'
-  # gem 'spork-rails', '4.0.0'
-  # gem 'guard-spork', '1.5.0'
-  # gem 'childprocess', '0.3.6'
+  if Time.now > Time.new(2014,11,10)
+    gem 'guard', '~> 2.8'
+  else
+    # Freeze until 2014-11-10 - in case we forget to change back ;)
+    gem 'guard', '= 2.7.3'
+  end
+  gem 'guard-rspec', '2.5.0'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.5.5'
 end
 
 group :test do
